@@ -6,7 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;
 
-public interface ChecklistItemRepository extends PagingAndSortingRepository<CategoryEntity, Long> {
+public interface ChecklistItemRepository extends PagingAndSortingRepository<ChecklistItemEntity, Long> {
 
     Optional<ChecklistItemEntity> findByGuid(String guid);
 
