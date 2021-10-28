@@ -1,19 +1,17 @@
-package com.PrimeiroProjeto.Projeto.entities;
+package com.PrimeiroProjeto.Projeto.entity;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Entity
+@Table(indexes = { @Index(name = "IDX_GUID_CK_IT", columnList = "guid")})
 public class ChecklistItemEntity extends BaseEntity{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ChecklistItemId;
 
     private String Description;
@@ -24,5 +22,6 @@ public class ChecklistItemEntity extends BaseEntity{
 
     private LocalTime posteDate;
 
+    @ManyToOne
     private CategoryEntity category;
 }
