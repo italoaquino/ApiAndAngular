@@ -3,6 +3,7 @@ package com.PrimeiroProjeto.Projeto.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
@@ -14,13 +15,13 @@ public class ChecklistItemEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ChecklistItemId;
 
-    private String Description;
+    private String description;
 
-    private boolean IsCompleted;
+    private Boolean isCompleted;
 
-    private LocalTime deadLine;
+    private LocalDate deadLine;
 
-    private LocalTime posteDate;
+    private LocalDate postDate;
 
     @ManyToOne
     private CategoryEntity category;
